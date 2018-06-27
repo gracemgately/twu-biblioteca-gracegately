@@ -4,10 +4,10 @@ package com.twu.biblioteca;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-public class ExampleTest {
+public class WelcomeMessageTest {
 
     @Test
-    public void test() {
+    public void thereShouldBeAWelcomeMessage() {
         assertEquals(1, 1);
     }
 }

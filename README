@@ -30,4 +30,10 @@ DONE !
 Instructions for running code
 ==========================================
 1. To compile: from root directory, run `javac -d classes src/com/twu/biblioteca/BibliotecaApp.java`
-2. To run: from root directory, run `java -cp ./classes com.twu.biblioteca.BibliotecaApp`
+
+2. To test: from root directory, compile:
+    `javac -cp .:lib/junit-4.11.jar test/com/twu/biblioteca/*.java`
+    then:
+    `java -cp .:lib/junit-4.11.jar:test org.junit.runner.JUnitCore com.twu.biblioteca.TESTNAME`
+
+3. To run: from root directory, run `java -cp ./classes com.twu.biblioteca.BibliotecaApp`
