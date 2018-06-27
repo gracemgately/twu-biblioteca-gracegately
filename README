@@ -29,11 +29,11 @@ DONE !
 
 Instructions for running code
 ==========================================
-1. To compile: from root directory, run `javac -d classes src/com/twu/biblioteca/BibliotecaApp.java`
+1. To compile: from root directory, run `bash bash/build.sh`
 
 2. To test: from root directory, compile:
-    `javac -cp .:lib/junit-4.11.jar test/com/twu/biblioteca/*.java`
+    `bash bash/test_build.sh`
     then:
-    `java -cp .:lib/junit-4.11.jar:test org.junit.runner.JUnitCore com.twu.biblioteca.TESTNAME`
+    `bash bash/test.sh TESTNAME`
 
-3. To run: from root directory, run `java -cp ./classes com.twu.biblioteca.BibliotecaApp`
+3. To run: from root directory, run `bash bash/start.sh`
