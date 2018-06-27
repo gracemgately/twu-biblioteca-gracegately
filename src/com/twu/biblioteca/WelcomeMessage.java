@@ -1,9 +1,9 @@
 package com.twu.biblioteca;
 
-public class WelcomeMessage {
+public class WelcomeMessage extends Message {
 
-    public static String GameShouldDisplayWelcomeMessageOnStart(){
-        return "Hello! Welcome to Biblioteca :)";
+    public static void gameShouldDisplayWelcomeMessageOnStart(){
+        setMessage("Hello! Welcome to Biblioteca :)");
     }
 
 }

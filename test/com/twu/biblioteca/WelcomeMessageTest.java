@@ -5,13 +5,17 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class WelcomeMessageTest {
-
     @Test
-    public void gameShouldDisplayWelcomeMessageOnStart() {
+    public void gameShouldDisplayWelcomeMessage() {
 
-        String testMessage = "Hello! Welcome to Biblioteca :)";
-        String actualMessage = WelcomeMessage.GameShouldDisplayWelcomeMessageOnStart();
+        String noMessage = "";
+        String expectedMessage = "Hello! Welcome to Biblioteca :)";
 
-        assertTrue(actualMessage.equals(testMessage));
+        WelcomeMessage.gameShouldDisplayWelcomeMessageOnStart();
+        String actualMessage = WelcomeMessage.getMessage();
+
+        assertFalse(noMessage.equals(expectedMessage));
+        assertTrue(actualMessage.equals(expectedMessage));
     }
+
 }
