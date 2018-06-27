@@ -27,3 +27,7 @@ Instructions to open your code in Intellij
 2. Select the directory containing the code
 DONE !
 
+Instructions for running code
+==========================================
+1. To compile: from root directory, run `javac -d classes src/com/twu/biblioteca/BibliotecaApp.java`
+2. To run: from root directory, run `java -cp ./classes com.twu.biblioteca.BibliotecaApp`
