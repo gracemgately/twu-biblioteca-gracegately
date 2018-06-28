@@ -12,9 +12,9 @@ public class BookList {
         //TBD: eventually initialize the book index from saved information
         //from previous sessions of Biblioteca
 
-        Book book1 = new Book("Pat the Bunny", "Kunhardt, Dorothy", 3, 1940);
-        Book book2 = new Book("A True Novel", "Mizumura, Minae", 1, 2002);
-        Book book3 = new Book("Anna Karenina", "Tolstoy, Leo", 5, 1877);
+        Book book1 = new Book("Pat the Bunny", "Kunhardt, Dorothy", 3, 1940, 1);
+        Book book2 = new Book("A True Novel", "Mizumura, Minae", 1, 2002, 2);
+        Book book3 = new Book("Anna Karenina", "Tolstoy, Leo", 5, 1877, 3);
 
         bookList.put(book1, book1.quantityInStock);
         bookList.put(book2, book2.quantityInStock);

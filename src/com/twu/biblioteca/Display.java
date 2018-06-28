@@ -11,14 +11,13 @@ public class Display {
 
     static void display(TreeMap<Book, Integer> bookList){
 
-        System.out.format("%32s%32s%32s%32s%2s", "Author:", "Title:", "Year:", "# Available:","\n");
+        System.out.format("%32s%32s%32s%32s%32s%2s","ID#", "Author:", "Title:", "Year:", "# Available:","\n");
 
         for (Map.Entry<Book, Integer> entry: bookList.entrySet()){
             Book book = entry.getKey();
             Integer quantity = entry.getValue();
 
-            System.out.format("%32s%32s%32d%32d%2s", book.author, book.title, book.year, quantity, "\n");
-
+            System.out.format("%32d%32s%32s%32d%32d%2s", book.ID, book.author, book.title, book.year, quantity, "\n");
         }
     }
 

@@ -13,7 +13,7 @@ public class BookListTest {
 
     @Before
     public void createTestBookAndList(){
-        Book book = new Book("The Wind in The Willows", "Grahame, Kenneth", 4, 1908);
+        Book book = new Book("The Wind in The Willows", "Grahame, Kenneth", 4, 1908, 6);
         book.addOwner("Me, Who");
         book.addOwner("You, Is");
 

@@ -3,7 +3,6 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 public class BookTest {
@@ -11,7 +10,7 @@ public class BookTest {
     private Book testBook;
     @Before
     public void createTestBook(){
-        Book book = new Book("The Wind in The Willows", "Grahame, Kenneth", 4, 1908);
+        Book book = new Book("The Wind in The Willows", "Grahame, Kenneth", 4, 1908, 6);
         book.addOwner("Me, Who");
         book.addOwner("You, Is");
         testBook = book;
@@ -45,6 +44,12 @@ public class BookTest {
     public void booksShouldHaveOwnersIfCheckedOut(){
         assertTrue(testBook.owners.size() == 2);
         assertTrue(testBook.owners.get(0).equals("Me, Who"));
+    }
+
+    @Test
+    public void booksShouldHaveAUniqueIDNumber(){
+        assertTrue(testBook.ID == 6);
+        assertFalse(testBook.ID == 3);
     }
 }
 

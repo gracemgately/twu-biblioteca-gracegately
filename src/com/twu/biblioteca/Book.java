@@ -15,12 +15,14 @@ public class Book implements Comparable<Book>{
     String title, author;
     ArrayList<String> owners;
     int quantityInStock, year;
-    Book(String title, String author, int quantityInStock, int year){
+    final int ID;
+    Book(String title, String author, int quantityInStock, int year, int ID){
         this.title = title;
         this.author = author;
         this.year = year;
         this.owners = new ArrayList<String>();
         this.quantityInStock = quantityInStock;
+        this.ID = ID;
     }
 
     public void addOwner(String name){
