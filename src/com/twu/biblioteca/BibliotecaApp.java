@@ -9,6 +9,8 @@ public class BibliotecaApp {
 
         System.out.println("Hello, world!");
 
+        //TBD: THIS SHOULD ALL BE GAME CLASS LOGIC
+
         //initialize book list
         BookList.initializeBookIndex();
 
@@ -21,7 +23,8 @@ public class BibliotecaApp {
         WelcomeMessage.promptForUserName();
         String makeUser = WelcomeMessage.getMessage();
         Display.display(makeUser);
-
+        UserInfoScanner.createScanner();
+        String userName = UserInfoScanner.runUserInfoScanner();
 
         //display book list
         TreeMap<Book, Integer> listOfBooks = BookList.getBookList();

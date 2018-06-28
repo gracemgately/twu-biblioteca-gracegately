@@ -8,7 +8,7 @@ import java.io.InputStream;
 
 public class InputScannerTest{
 
-    //TBD: A lot of repetition in these tests...
+    //TBD: A lot of repetition in the scanner tests...
 
     @Test
     public void scannerShouldTakeUserInput(){
