@@ -17,17 +17,24 @@ public class BibliotecaApp {
         String hello = WelcomeMessage.getMessage();
         Display.display(hello);
 
+        //get user name
+        WelcomeMessage.promptForUserName();
+        String makeUser = WelcomeMessage.getMessage();
+        Display.display(makeUser);
+
+
         //display book list
         TreeMap<Book, Integer> listOfBooks = BookList.getBookList();
         Display.display(listOfBooks);
 
-        //user input
+        //display menu options
         MenuMessages.gameShouldDisplayMenuOptionsOnStart();
         String menuOptions = MenuMessages.getMessage();
         Display.display(menuOptions);
 
-        UserInputScanner.createScanner();
-        int userChoice = UserInputScanner.runScanner();
+        //user input
+        MenuInputScanner.createScanner();
+        int userChoice = MenuInputScanner.runMenuInputScanner();
 
     }
 }

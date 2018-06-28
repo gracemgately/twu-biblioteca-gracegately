@@ -10,7 +10,6 @@ public class WelcomeMessageTest {
 
         String noMessage = "";
         String expectedMessage = "Hello! Welcome to Biblioteca :)";
-
         WelcomeMessage.gameShouldDisplayWelcomeMessageOnStart();
         String actualMessage = WelcomeMessage.getMessage();
 

@@ -1,23 +1,9 @@
 package com.twu.biblioteca;
 
-import java.util.Scanner;
+public class MenuInputScanner extends InputScanner{
 
-public class UserInputScanner{
-
-    private static Scanner inputScanner;
-
-    static void createScanner(){
-        Scanner scanner = new Scanner(System.in);
-        inputScanner = scanner;
-    }
-
-    static Scanner getScanner(){
-        return inputScanner;
-    }
-
-    static int runScanner() {
-        int choice = inputScanner.nextInt();
-        System.out.println();
+        static int runMenuInputScanner() {
+        int choice = getScanner().nextInt();
         switch (choice) {
             case 1:
                 // Check out a book
@@ -36,5 +22,4 @@ public class UserInputScanner{
                 return 0;
         }
     }
-
 }

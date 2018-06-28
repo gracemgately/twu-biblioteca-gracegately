@@ -6,21 +6,7 @@ import static org.junit.Assert.*;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
-public class UserInputScannerTest{
-
-    //TBD: A lot of repetition in these tests...
-
-    @Test
-    public void scannerShouldTakeUserInput(){
-        String input = "1";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-
-        UserInputScanner.createScanner();
-        String scannerInput = UserInputScanner.getScanner().nextLine();
-
-        assertEquals(input, scannerInput);
-    }
+public class MenuInputScannerTest{
 
     @Test
     public void scannerShouldReturnResultBasedOnUserChoice(){
@@ -28,8 +14,8 @@ public class UserInputScannerTest{
         InputStream good = new ByteArrayInputStream(goodInput.getBytes());
         System.setIn(good);
 
-        UserInputScanner.createScanner();
-        int scannerResult = UserInputScanner.runScanner();
+        MenuInputScanner.createScanner();
+        int scannerResult = MenuInputScanner.runMenuInputScanner();
 
         assertEquals(2, scannerResult);
         assertNotEquals(4,scannerResult);
@@ -42,11 +28,12 @@ public class UserInputScannerTest{
         InputStream bad = new ByteArrayInputStream(badInput.getBytes());
         System.setIn(bad);
 
-        UserInputScanner.createScanner();
-        int scannerResult = UserInputScanner.runScanner();
+        MenuInputScanner.createScanner();
+        int scannerResult = MenuInputScanner.runMenuInputScanner();
 
         assertEquals(0, scannerResult);
         assertNotEquals(6, scannerResult);
     }
 
 }
+
