@@ -8,14 +8,14 @@ import static org.junit.Assert.*;
 
 public class BookTest {
 
-    private ArrayList<String> namesOfOwners() {
-        ArrayList<String> names = new ArrayList<String>();
-        names.add("Me, Who");
-        names.add("You, Is");
-        return names;
+    private Book testBook;
+    @Before
+    public void createTestBook(){
+        Book book = new Book("The Wind in The Willows", "Grahame, Kenneth", 4, 1908);
+        book.addOwner("Me, Who");
+        book.addOwner("You, Is");
+        testBook = book;
     }
-
-    Book testBook = new Book("The Wind in The Willows", "Grahame, Kenneth", namesOfOwners(), 4);
 
     @Test
     public void booksShouldHaveATitle(){
@@ -27,6 +27,12 @@ public class BookTest {
     public void booksShouldHaveAnAuthor(){
         assertTrue(testBook.author.equals("Grahame, Kenneth"));
         assertFalse(testBook.author.equals("Faulkner, William"));
+    }
+
+    @Test
+    public void booksShouldHaveAYearPublished(){
+        assertEquals(testBook.year, 1908);
+        assertNotEquals(testBook.year, 1929);
     }
 
     @Test

@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Message {
+abstract public class Message {
 
     private static String message;
 
