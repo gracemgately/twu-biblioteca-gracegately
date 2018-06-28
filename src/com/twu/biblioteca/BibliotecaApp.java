@@ -6,9 +6,14 @@ public class BibliotecaApp {
 
         System.out.println("Hello, world!");
 
+        //initialize book list
+
+        //display welcome message
         WelcomeMessage.gameShouldDisplayWelcomeMessageOnStart();
         String hello = WelcomeMessage.getMessage();
         System.out.println(hello);
+
+
 
     }
 }
