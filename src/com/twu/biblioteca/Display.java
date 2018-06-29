@@ -9,6 +9,7 @@ public class Display {
         System.out.println(str);
     }
 
+    //TBD: A lot of repetition here
     static void displayWelcomeMessage() {
         WelcomeMessage.gameShouldDisplayWelcomeMessageOnStart();
         String welcome = WelcomeMessage.getMessage();
@@ -25,6 +26,12 @@ public class Display {
         MenuMessages.gameShouldDisplayMenuOptionsOnStart();
         String menuOptions = MenuMessages.getMessage();
         System.out.println(menuOptions);
+    }
+
+    static void displayInvalidOptionMessage(){
+        InvalidOptionMessage.invalidSelection();
+        String invalid = InvalidOptionMessage.getMessage();
+        System.out.println(invalid);
     }
 
     static void displayBookList(){

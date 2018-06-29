@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 public class MenuInputScanner extends InputScanner{
 
-        static int runMenuInputScanner() {
+    static int runMenuInputScanner() {
         int choice = getScanner().nextInt();
         switch (choice) {
             case 1:
@@ -13,12 +13,14 @@ public class MenuInputScanner extends InputScanner{
                 return 2;
             case 3:
                 //View all books
+                Display.displayBookList();
                 return 3;
             case 4:
                 //Quit
                 return 4;
             default:
-                //Unknown/Bad input
+                //invalid option
+                Display.displayInvalidOptionMessage();
                 return 0;
         }
     }

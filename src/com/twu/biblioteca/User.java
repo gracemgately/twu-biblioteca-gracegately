@@ -25,8 +25,8 @@ public class User {
 
     static User parseUserInfoScannerInputAndCreateUser(String userName){
         String[] fullName = userName.split(",");
-        String last = fullName[0].trim();
-        String first = fullName[1].trim();
+        String last = fullName[0].trim().toUpperCase();
+        String first = fullName[1].trim().toUpperCase();
         return new User(last, first);
     }
 

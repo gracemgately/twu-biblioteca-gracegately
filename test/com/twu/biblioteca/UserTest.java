@@ -13,9 +13,13 @@ public class UserTest {
         assertNotEquals("IS", testUser.getLastName());
     }
 
-//    @Test
-//    public User userShouldBeCreatedFromUserInput() {
-//
-//    }
+    @Test
+    public void userShouldBeCreatedFromUserInput() {
+        String userInput = "kennEdY  , BoBBy  ";
+        User newUser = User.parseUserInfoScannerInputAndCreateUser(userInput);
+
+        assertEquals(newUser.getFirstName(), "BOBBY");
+        assertNotEquals(newUser.getLastName(), testUser.getLastName());
+    }
 }
 

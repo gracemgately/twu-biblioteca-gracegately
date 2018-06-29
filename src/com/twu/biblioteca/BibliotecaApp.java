@@ -6,10 +6,10 @@ public class BibliotecaApp {
 
         System.out.println("Hello, world!");
 
-        //TBD: THIS SHOULD ALL BE GAME CLASS LOGIC
+        //TBD: THIS SHOULD ALL BE GAME CLASS LOGIC??
 
         //initialize book list
-        Game.initializeBookList();
+        BookList.initializeBookIndex();
 
         //display welcome message
         Display.displayWelcomeMessage();
@@ -25,9 +25,6 @@ public class BibliotecaApp {
 
         //Welcome current user
         Display.display("Hi " + currentUser.getFirstName() + "!" );
-
-        //display book list
-        Display.displayBookList();
 
         //display menu options
         Display.displayMainMenu();
