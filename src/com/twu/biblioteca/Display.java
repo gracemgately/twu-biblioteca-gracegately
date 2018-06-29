@@ -22,10 +22,17 @@ public class Display {
         System.out.println(prompt);
     }
 
-    static void displayMainMenu(){
-        MenuMessages.gameShouldDisplayMenuOptionsOnStart();
+    //TBD: repetition in Menu displays
+    static void displayFirstMainMenu(){
+        MenuMessages.gameShouldDisplayTwoMenuOptionsOnStart();
         String menuOptions = MenuMessages.getMessage();
         System.out.println(menuOptions);
+    }
+
+    static void displayWholeMenu(){
+        MenuMessages.gameShouldDisplayAllMenuOptions();
+        String allOptions = MenuMessages.getMessage();
+        System.out.println(allOptions);
     }
 
     static void displayInvalidOptionMessage(){

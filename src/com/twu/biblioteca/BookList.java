@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.util.Map;
 import java.util.TreeMap;
 
 public class BookList {
@@ -23,6 +24,18 @@ public class BookList {
 
     static TreeMap<Book, Integer> getBookList(){
         return bookList;
+    }
+
+    static Object findBookBasedOnID(int searchID){
+        Book found = null;
+
+        for (Map.Entry<Book, Integer> entry: bookList.entrySet()){
+            Book book = entry.getKey();
+            if (book.ID == searchID){
+                found = book;
+            }
+        }
+        return found;
     }
 
 }

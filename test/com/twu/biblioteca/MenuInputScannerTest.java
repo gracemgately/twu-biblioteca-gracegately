@@ -23,7 +23,7 @@ public class MenuInputScannerTest{
     }
 
     @Test
-    public void scannerShouldAccountForBadUserInput(){
+    public void scannerShouldNotTakeBadUserInput(){
         String badInput = "10";
         InputStream bad = new ByteArrayInputStream(badInput.getBytes());
         System.setIn(bad);

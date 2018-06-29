@@ -7,6 +7,10 @@ public class MenuMessages extends Message{
             viewAllBooksOption = "Enter 3 to View All Books",
             quitOption = "Enter 4 to Quit";
 
-    public static void gameShouldDisplayMenuOptionsOnStart(){
-        setMessage(checkOutOption + "\n" + returnOption + "\n" + viewAllBooksOption + "\n" + quitOption); }
+    public static void gameShouldDisplayTwoMenuOptionsOnStart(){
+        setMessage(viewAllBooksOption + "\n" + quitOption); }
+
+    public static void gameShouldDisplayAllMenuOptions(){
+        setMessage(checkOutOption + "\n" + returnOption + "\n" + viewAllBooksOption + "\n" + quitOption);
+    }
 }

@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.awt.*;
+
 public class BibliotecaApp {
 
     public static void main(String[] args) {
@@ -26,12 +28,17 @@ public class BibliotecaApp {
         //Welcome current user
         Display.display("Hi " + currentUser.getFirstName() + "!" );
 
-        //display menu options
-        Display.displayMainMenu();
+        //display menu options FIRST TIME
+        Display.displayFirstMainMenu();
 
-        //user input
-        MenuInputScanner.createScanner();
-        int userChoice = MenuInputScanner.runMenuInputScanner();
+        //start library menu loop
+        GameLoops.entryLoop();
+        if (GameLoops.getCurrentChoice() != 4){
+            //user input
+            MenuInputScanner.createScanner();
+            GameLoops.otherLoops();
+        }
+
 
     }
 }
