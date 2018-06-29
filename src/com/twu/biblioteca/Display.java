@@ -9,7 +9,27 @@ public class Display {
         System.out.println(str);
     }
 
-    static void display(TreeMap<Book, Integer> bookList){
+    static void displayWelcomeMessage() {
+        WelcomeMessage.gameShouldDisplayWelcomeMessageOnStart();
+        String welcome = WelcomeMessage.getMessage();
+        System.out.println(welcome);
+    }
+
+    static void displayUserInfoMessage(){
+        UserInfoMessage.promptForUserName();
+        String prompt = UserInfoMessage.getMessage();
+        System.out.println(prompt);
+    }
+
+    static void displayMainMenu(){
+        MenuMessages.gameShouldDisplayMenuOptionsOnStart();
+        String menuOptions = MenuMessages.getMessage();
+        System.out.println(menuOptions);
+    }
+
+    static void displayBookList(){
+
+        TreeMap<Book, Integer> bookList = BookList.getBookList();
 
         System.out.format("%32s%32s%32s%32s%32s%2s","ID#", "Author:", "Title:", "Year:", "# Available:","\n");
 

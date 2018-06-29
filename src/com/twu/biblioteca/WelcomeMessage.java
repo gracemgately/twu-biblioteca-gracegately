@@ -6,8 +6,4 @@ public class WelcomeMessage extends Message {
         setMessage("Hello! Welcome to Biblioteca :)");
     }
 
-    public static void promptForUserName(){
-        setMessage("Please enter your name: LASTNAME, FIRSTNAME.");
-    }
-
 }

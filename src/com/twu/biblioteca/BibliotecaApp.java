@@ -1,8 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.TreeMap;
-import java.util.Scanner;
-
 public class BibliotecaApp {
 
     public static void main(String[] args) {
@@ -12,28 +9,28 @@ public class BibliotecaApp {
         //TBD: THIS SHOULD ALL BE GAME CLASS LOGIC
 
         //initialize book list
-        BookList.initializeBookIndex();
+        Game.initializeBookList();
 
         //display welcome message
-        WelcomeMessage.gameShouldDisplayWelcomeMessageOnStart();
-        String hello = WelcomeMessage.getMessage();
-        Display.display(hello);
+        Display.displayWelcomeMessage();
+
+        //display prompt for user
+        Display.displayUserInfoMessage();
 
         //get user name
-        WelcomeMessage.promptForUserName();
-        String makeUser = WelcomeMessage.getMessage();
-        Display.display(makeUser);
-        UserInfoScanner.createScanner();
-        String userName = UserInfoScanner.runUserInfoScanner();
+        String userName = User.getUserInfoFromUserInfoScanner();
+
+        //create or find user
+        User currentUser = User.parseUserInfoScannerInputAndCreateUser(userName);
+
+        //Welcome current user
+        Display.display("Hi " + currentUser.getFirstName() + "!" );
 
         //display book list
-        TreeMap<Book, Integer> listOfBooks = BookList.getBookList();
-        Display.display(listOfBooks);
+        Display.displayBookList();
 
         //display menu options
-        MenuMessages.gameShouldDisplayMenuOptionsOnStart();
-        String menuOptions = MenuMessages.getMessage();
-        Display.display(menuOptions);
+        Display.displayMainMenu();
 
         //user input
         MenuInputScanner.createScanner();
