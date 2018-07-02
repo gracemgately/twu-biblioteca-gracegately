@@ -33,6 +33,16 @@ public class BookListTest {
 
     @Test
     public void shouldBeAbleToFindABookByID(){
+        testList.put(testBook, testBook.quantityInStock);
+
+        Object isBook = BookList.findBookBasedOnID(testList, 6);
+        assertTrue(isBook.equals(testBook));
+    }
+
+    @Test
+    public void shouldReturnNullForABookIDNotInList(){
+        Object notBook = BookList.findBookBasedOnID(testList, 8);
+        assertNull(notBook);
 
     }
 

@@ -41,6 +41,12 @@ public class Display {
         System.out.println(invalid);
     }
 
+    static void displayCheckoutResultMessage(boolean success){
+        CheckoutMessage.wasCheckoutSuccessful(success);
+        String result = CheckoutMessage.getMessage();
+        System.out.println(result);
+    }
+
     static void displayBookList(){
 
         TreeMap<Book, Integer> bookList = BookList.getBookList();

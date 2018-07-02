@@ -3,17 +3,34 @@ package com.twu.biblioteca;
 public class MenuInputScanner extends InputScanner{
 
     static int runMenuInputScanner() {
-        int choice = getScanner().nextInt();
+        int choice = MenuInputScanner.getScanner().nextInt();
         switch (choice) {
             case 1:
                 // Check out a book
                 Display.display("Enter the ID of the book you would like to check out.");
                 CheckoutInputScanner.createScanner();
-                CheckoutInputScanner.runCheckoutScanner();
 
+                int bookID = CheckoutInputScanner.runCheckoutScanner();
+                Object isBook = BookList.findBookBasedOnID(BookList.getBookList(), bookID);
 
+                //if this book does not exist in the database
+                if (isBook == null){
+                    Display.displayInvalidOptionMessage();
+                    return 1;
+                }
+                //otherwise, check to see if there is at least one in
+                //stock to check out to this user
+                else {
+                    Book book = Book.class.cast(isBook);
+                    if (book.quantityInStock == 0){
+                        Display.displayCheckoutResultMessage(false);
+                    }
+                }
                 // check to see if book amount available is zero
-                    //yes: display unsuccessful checkout message
+                    //yes:
+                        //decrement amount of in booklist --
+                        //add owner to book
+                        //display unsuccessful checkout message
                         //return 1;
                     //no:
                         //add book id to array in user's list of books

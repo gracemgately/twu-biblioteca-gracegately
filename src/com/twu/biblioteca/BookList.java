@@ -16,20 +16,22 @@ public class BookList {
         Book book1 = new Book("Pat the Bunny", "Kunhardt, Dorothy", 3, 1940, 1);
         Book book2 = new Book("A True Novel", "Mizumura, Minae", 1, 2002, 2);
         Book book3 = new Book("Anna Karenina", "Tolstoy, Leo", 5, 1877, 3);
+        Book book4 = new Book("Goodnight Moon", "Wise Brown, Margaret", 0, 1947, 4);
 
         bookList.put(book1, book1.quantityInStock);
         bookList.put(book2, book2.quantityInStock);
         bookList.put(book3, book3.quantityInStock);
+        bookList.put(book4, book4.quantityInStock);
     }
 
     static TreeMap<Book, Integer> getBookList(){
         return bookList;
     }
 
-    static Object findBookBasedOnID(int searchID){
+    static Object findBookBasedOnID(TreeMap<Book, Integer> listToSearch, int searchID){
         Book found = null;
 
-        for (Map.Entry<Book, Integer> entry: bookList.entrySet()){
+        for (Map.Entry<Book, Integer> entry: listToSearch.entrySet()){
             Book book = entry.getKey();
             if (book.ID == searchID){
                 found = book;

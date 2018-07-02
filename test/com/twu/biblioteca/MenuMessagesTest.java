@@ -9,7 +9,7 @@ public class MenuMessagesTest {
 
         String noMessage = "";
 
-        MenuMessages.gameShouldDisplayMenuOptionsOnStart();
+        MenuMessages.gameShouldDisplayTwoMenuOptionsOnStart();
         String actualMessage = MenuMessages.getMessage();
 
         assertFalse(noMessage.equals(actualMessage));
