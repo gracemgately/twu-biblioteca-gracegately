@@ -25,11 +25,15 @@ public class Book implements Comparable<Book>{
         this.ID = ID;
     }
 
-    public void addOwner(String name){
+    void addOwner(String name){
         this.owners.add(name);
     }
 
-    public boolean areCopiesAvailableForCheckout(){
+    boolean areCopiesAvailableForCheckout(){
         return (this.quantityInStock == 0) ? false : true;
+    }
+
+    void decrementQtyInStock(){
+        this.quantityInStock--;
     }
 }

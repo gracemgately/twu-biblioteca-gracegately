@@ -25,6 +25,7 @@ public class MenuInputScanner extends InputScanner{
                 Display.displayBookList();
                 return 3;
             case 4:
+                //Quit
                 Display.display("Goodbye!");
                 return 4;
             default:

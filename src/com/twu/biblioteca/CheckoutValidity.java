@@ -27,12 +27,20 @@ public class CheckoutValidity {
     }
 
     static void proceedWithValidCheckout(TreeMap<Integer, Book> bookList, int bookID){
-        Object bookToCheckout = BookList.findBookBasedOnID(bookList, bookID);
+        Object bookObject = BookList.findBookBasedOnID(bookList, bookID);
+        Book bookToCheckout = Book.class.cast(bookObject);
         String currentUserHash = User.generateBasicUserHash();
 
-        //decrement amount of in book --
-        //add book id to array in user's list of books
-        //add owner to book
+        //add book id to list of book ids in user array
+        User.checkoutBookToUser(bookID);
+
+        //add user hash to book array of owners
+        bookToCheckout.addOwner(currentUserHash);
+
+        //decrement amount of in book
+        bookToCheckout.decrementQtyInStock();
+
         //display successful checkout message
+        Display.displayCheckoutResultMessage(true);
     }
 }

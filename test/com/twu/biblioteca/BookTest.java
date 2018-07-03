@@ -59,6 +59,12 @@ public class BookTest {
         assertFalse(testBook2.areCopiesAvailableForCheckout());
         assertTrue(testBook.areCopiesAvailableForCheckout());
     }
+
+    @Test
+    public void shouldDecrementQuantityAvailableAfterCheckout(){
+        testBook.decrementQtyInStock();
+        assertEquals(3, testBook.quantityInStock);
+    }
 }
 
 
