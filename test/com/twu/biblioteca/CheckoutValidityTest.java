@@ -9,16 +9,16 @@ import static org.junit.Assert.*;
 
 public class CheckoutValidityTest {
 
-    private TreeMap<Book, Integer> testList;
+    private TreeMap<Integer, Book> testList;
 
     @Before
     public void createTestBookAndList(){
         Book book = new Book("The Wind in The Willows", "Grahame, Kenneth", 0, 1908, 6);
         Book book2 = new Book("Test-Driven Development: By Example", "Kent Beck", 2, 2003, 7);
-        TreeMap<Book, Integer> list = new TreeMap<Book, Integer>();
+        TreeMap<Integer, Book> list = new TreeMap<Integer, Book>();
 
-        list.put(book, book.quantityInStock);
-        list.put(book2, book2.quantityInStock);
+        list.put(book.ID, book);
+        list.put(book2.ID, book2);
 
         testList = list;
     }

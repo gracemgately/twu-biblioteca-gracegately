@@ -6,8 +6,8 @@ import java.util.TreeMap;
 public class BookList {
 
     //Object: Book
-    //Integer: how many of that book remain available
-    private static TreeMap<Book, Integer> bookList = new TreeMap<Book, Integer>();
+    //Integer: Book id
+    private static TreeMap<Integer, Book> bookList = new TreeMap<Integer, Book>();
 
     static void initializeBookIndex(){
         //TBD: eventually initialize the book index from saved information
@@ -18,26 +18,18 @@ public class BookList {
         Book book3 = new Book("Anna Karenina", "Tolstoy, Leo", 5, 1877, 3);
         Book book4 = new Book("Goodnight Moon", "Wise Brown, Margaret", 0, 1947, 4);
 
-        bookList.put(book1, book1.quantityInStock);
-        bookList.put(book2, book2.quantityInStock);
-        bookList.put(book3, book3.quantityInStock);
-        bookList.put(book4, book4.quantityInStock);
+        bookList.put(book1.ID, book1);
+        bookList.put(book2.ID, book2);
+        bookList.put(book3.ID, book3);
+        bookList.put(book4.ID, book4);
     }
 
-    static TreeMap<Book, Integer> getBookList(){
+    static TreeMap<Integer, Book> getBookList(){
         return bookList;
     }
 
-    static Object findBookBasedOnID(TreeMap<Book, Integer> listToSearch, int searchID){
-        Book found = null;
-
-        for (Map.Entry<Book, Integer> entry: listToSearch.entrySet()){
-            Book book = entry.getKey();
-            if (book.ID == searchID){
-                found = book;
-            }
-        }
-        return found;
+    static Object findBookBasedOnID(TreeMap<Integer, Book> listToSearch, int searchID){
+        return listToSearch.get(searchID);
     }
 
 }

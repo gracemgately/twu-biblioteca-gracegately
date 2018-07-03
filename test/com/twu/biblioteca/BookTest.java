@@ -7,13 +7,15 @@ import static org.junit.Assert.*;
 
 public class BookTest {
 
-    private Book testBook;
+    private Book testBook, testBook2;
     @Before
     public void createTestBook(){
         Book book = new Book("The Wind in The Willows", "Grahame, Kenneth", 4, 1908, 6);
+        Book book2 = new Book("Test-Driven Development: By Example", "Kent Beck", 0, 2003, 7);
         book.addOwner("Me, Who");
         book.addOwner("You, Is");
         testBook = book;
+        testBook2 = book2;
     }
 
     @Test
@@ -50,6 +52,12 @@ public class BookTest {
     public void booksShouldHaveAUniqueIDNumber(){
         assertTrue(testBook.ID == 6);
         assertFalse(testBook.ID == 3);
+    }
+
+    @Test
+    public void booksShouldKnowIfThereAreCopiesAvailableForCheckout(){
+        assertFalse(testBook2.areCopiesAvailableForCheckout());
+        assertTrue(testBook.areCopiesAvailableForCheckout());
     }
 }
 

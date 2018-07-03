@@ -28,4 +28,8 @@ public class Book implements Comparable<Book>{
     public void addOwner(String name){
         this.owners.add(name);
     }
+
+    public boolean areCopiesAvailableForCheckout(){
+        return (this.quantityInStock == 0) ? false : true;
+    }
 }

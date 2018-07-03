@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import com.sun.tools.javac.comp.Check;
-
 public class MenuInputScanner extends InputScanner{
 
     static int runMenuInputScanner() {
@@ -18,7 +16,6 @@ public class MenuInputScanner extends InputScanner{
                 if (isValidForCheckout == true) {
                     CheckoutValidity.proceedWithValidCheckout(bookID);
                 }
-
                 return 1;
             case 2:
                 // Return a book

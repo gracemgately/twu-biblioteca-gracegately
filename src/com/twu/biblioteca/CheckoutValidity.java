@@ -4,7 +4,7 @@ import java.util.TreeMap;
 
 public class CheckoutValidity {
 
-    static boolean runPrelimCheckoutTests(TreeMap<Book, Integer> bookList, int bookID){
+    static boolean runPrelimCheckoutTests(TreeMap<Integer, Book> bookList, int bookID){
         Object isBook = BookList.findBookBasedOnID(bookList, bookID);
 
         //if this book does not exist in the database
@@ -16,12 +16,12 @@ public class CheckoutValidity {
         //stock to check out to this user
         else {
             Book book = Book.class.cast(isBook);
-            if (book.quantityInStock == 0){
-                Display.displayCheckoutResultMessage(false);
-                return false;
+            if (book.areCopiesAvailableForCheckout()){
+                return true;
             }
             else {
-                return true;
+                Display.displayCheckoutResultMessage(false);
+                return false;
             }
         }
     }
