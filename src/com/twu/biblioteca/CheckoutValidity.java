@@ -4,6 +4,8 @@ import java.util.TreeMap;
 
 public class CheckoutValidity {
 
+    private static String currentUserHash = User.generateBasicUserHash();
+
     static boolean runPrelimCheckoutTests(TreeMap<Integer, Book> bookList, int bookID){
         Object isBook = BookList.findBookBasedOnID(bookList, bookID);
 
@@ -29,7 +31,6 @@ public class CheckoutValidity {
     static void proceedWithValidCheckout(TreeMap<Integer, Book> bookList, int bookID){
         Object bookObject = BookList.findBookBasedOnID(bookList, bookID);
         Book bookToCheckout = Book.class.cast(bookObject);
-        String currentUserHash = User.generateBasicUserHash();
 
         //add book id to list of book ids in user array
         User.checkoutBookToUser(bookID);

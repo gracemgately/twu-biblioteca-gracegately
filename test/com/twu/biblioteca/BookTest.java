@@ -45,7 +45,7 @@ public class BookTest {
     @Test
     public void booksShouldHaveOwnersIfCheckedOut(){
         assertTrue(testBook.owners.size() == 2);
-        assertTrue(testBook.owners.get(0).equals("Me, Who"));
+        assertTrue(testBook.doesBookHaveUserInList("Me, Who"));
     }
 
     @Test
@@ -65,6 +65,7 @@ public class BookTest {
         testBook.decrementQtyInStock();
         assertEquals(3, testBook.quantityInStock);
     }
+
 }
 
 

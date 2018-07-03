@@ -42,8 +42,17 @@ public class User {
         booksCheckedOut.add(bookID);
     }
 
+    static void returnBookToLibrary(int bookID){
+        int indexToRemove = booksCheckedOut.indexOf(bookID);
+        booksCheckedOut.remove(indexToRemove);
+    }
+
     static ArrayList<Integer> getBooksCheckedOutToUser(){
         return booksCheckedOut;
+    }
+
+    static boolean isBookCheckedOutToUser(int bookID){
+        return booksCheckedOut.contains(bookID);
     }
 
 }
