@@ -9,8 +9,8 @@ public class UserTest {
 
     @Test
     public void userShouldHaveALastAndFirstName(){
-        assertEquals("NOT", testUser.getFirstName());
-        assertNotEquals("IS", testUser.getLastName());
+        assertEquals("NOT", User.getFirstName());
+        assertNotEquals("IS", User.getLastName());
     }
 
     @Test
@@ -18,8 +18,16 @@ public class UserTest {
         String userInput = "kennEdY  , BoBBy  ";
         User newUser = User.parseUserInfoScannerInputAndCreateUser(userInput);
 
-        assertEquals(newUser.getFirstName(), "BOBBY");
-        assertNotEquals(newUser.getLastName(), testUser.getLastName());
+        assertEquals(User.getFirstName(), "BOBBY");
+    }
+
+    @Test
+    public void userShouldHaveAddBookIDsToListWhenCheckedOut(){
+        assertEquals(0, User.getBooksCheckedOutToUser().size());
+
+        User.checkoutBookToUser(6);
+        User.checkoutBookToUser(2);
+        assertEquals(2, User.getBooksCheckedOutToUser().size());
     }
 }
 

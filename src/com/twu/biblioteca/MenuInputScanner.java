@@ -14,7 +14,7 @@ public class MenuInputScanner extends InputScanner{
 
                 boolean isValidForCheckout = CheckoutValidity.runPrelimCheckoutTests(BookList.getBookList(), bookID);
                 if (isValidForCheckout == true) {
-                    CheckoutValidity.proceedWithValidCheckout(bookID);
+                    CheckoutValidity.proceedWithValidCheckout(BookList.getBookList(), bookID);
                 }
                 return 1;
             case 2:

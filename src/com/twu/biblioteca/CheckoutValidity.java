@@ -26,14 +26,13 @@ public class CheckoutValidity {
         }
     }
 
-    static void proceedWithValidCheckout(int bookID){
-        //decrement amount of in booklist --
-        //add owner to book
-        //display unsuccessful checkout message
-        //return 1;
-        //no:
+    static void proceedWithValidCheckout(TreeMap<Integer, Book> bookList, int bookID){
+        Object bookToCheckout = BookList.findBookBasedOnID(bookList, bookID);
+        String currentUserHash = User.generateBasicUserHash();
+
+        //decrement amount of in book --
         //add book id to array in user's list of books
-        //decrease amount available
-        //add user info to owner array in book
+        //add owner to book
+        //display successful checkout message
     }
 }

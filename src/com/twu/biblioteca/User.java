@@ -1,21 +1,29 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
+
 public class User {
 
     //TBD: User should also eventually have a unique ID
 
-    private String lastName, firstName;
+    private static String lastName, firstName;
+    private static ArrayList<Integer> booksCheckedOut = new ArrayList<Integer>();
+
     User(String lastName, String firstName){
         this.lastName = lastName;
         this.firstName = firstName;
     }
 
-    String getLastName(){
-        return this.lastName;
+    static String getLastName(){
+        return lastName;
     }
 
-    String getFirstName(){
-        return this.firstName;
+    static String getFirstName(){
+        return firstName;
+    }
+
+    static String generateBasicUserHash(){
+        return User.getLastName() + User.getFirstName();
     }
 
     static String getUserInfoFromUserInfoScanner(){
@@ -30,5 +38,12 @@ public class User {
         return new User(last, first);
     }
 
+    static void checkoutBookToUser(int bookID){
+        booksCheckedOut.add(bookID);
+    }
+
+    static ArrayList<Integer> getBooksCheckedOutToUser(){
+        return booksCheckedOut;
+    }
 
 }
