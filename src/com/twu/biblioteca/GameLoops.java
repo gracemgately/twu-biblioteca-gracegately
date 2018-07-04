@@ -16,9 +16,6 @@ public class GameLoops {
             case 3:
                 //View all books
                 Display.displayBookList();
-
-                //Display all options
-                Display.displayWholeMenu();
                 currentChoice = 3;
                 break;
             case 4:
@@ -35,6 +32,7 @@ public class GameLoops {
     }
 
     static void otherLoops(){
+        Display.displayWholeMenu();
         int choice = MenuInputScanner.runMenuInputScanner();
         currentChoice = choice;
     }

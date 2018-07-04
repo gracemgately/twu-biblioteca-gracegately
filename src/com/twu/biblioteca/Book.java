@@ -37,7 +37,15 @@ public class Book implements Comparable<Book>{
         this.quantityInStock--;
     }
 
+    void incrementQtyInStock(){
+        this.quantityInStock++;
+    }
+
     boolean doesBookHaveUserInList(String userName){
         return this.owners.contains(userName);
+    }
+
+    void removeOwnerFromList(String userName){
+        this.owners.remove(userName);
     }
 }

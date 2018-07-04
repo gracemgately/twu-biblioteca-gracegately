@@ -66,6 +66,18 @@ public class BookTest {
         assertEquals(3, testBook.quantityInStock);
     }
 
+    @Test
+    public void shouldIncrementQuantityAvailableAfterReturn(){
+        testBook.incrementQtyInStock();
+        assertEquals(5, testBook.quantityInStock);
+    }
+
+    @Test
+    public void booksShouldRemoveOwnerFromListWhenReturned(){
+        testBook.removeOwnerFromList("WHOME");
+        assertFalse(testBook.owners.contains("WHOME"));
+    }
+
 }
 
 

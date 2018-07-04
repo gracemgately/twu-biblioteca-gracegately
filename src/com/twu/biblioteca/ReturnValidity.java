@@ -39,10 +39,10 @@ public class ReturnValidity {
         User.returnBookToLibrary(bookID);
 
         //remove user hash from book array of owners
-        //bookToReturn.removeOwner(currentUserHash);
+        bookToReturn.removeOwnerFromList(currentUserHash);
 
         //increment qty in stock of book
-        //bookToReturn.incrementQtyInStock();
+        bookToReturn.incrementQtyInStock();
 
         //display successful return message
         Display.displayReturnResultMessage(true);

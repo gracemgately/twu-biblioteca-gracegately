@@ -33,7 +33,7 @@ public class BibliotecaApp {
 
         //start library menu loop
         GameLoops.entryLoop();
-        if (GameLoops.getCurrentChoice() != 4){
+        while (GameLoops.getCurrentChoice() != 4){
             //user input
             MenuInputScanner.createScanner();
             GameLoops.otherLoops();

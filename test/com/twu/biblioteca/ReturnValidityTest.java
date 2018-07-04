@@ -10,6 +10,7 @@ import java.util.TreeMap;
 public class ReturnValidityTest {
 
     private TreeMap<Integer, Book> testList;
+    private Book testBook, testBook2;
 
     @Before
     public void createTestBookAndListAndUser(){
@@ -21,6 +22,8 @@ public class ReturnValidityTest {
         list.put(book2.ID, book2);
 
         testList = list;
+        testBook = book;
+        testBook2 = book2;
 
         User newUser = new User("First", "Last");
         User.checkoutBookToUser(7);
@@ -41,11 +44,16 @@ public class ReturnValidityTest {
 
     @Test
     public void shouldIncrementQuantityInStock(){
-
+        ReturnValidity.proceedWithValidReturn(testList, 7);
+        assertEquals(3, testBook2.quantityInStock);
     }
 
     @Test
     public void shouldRemoveUserFromBookListOfOwners(){
+        assertTrue(testBook2.doesBookHaveUserInList(User.generateBasicUserHash()));
+
+        ReturnValidity.proceedWithValidReturn(testList, 7);
+        assertFalse(testBook2.doesBookHaveUserInList(User.generateBasicUserHash()));
 
     }
 }
