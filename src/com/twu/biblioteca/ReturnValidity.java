@@ -6,8 +6,8 @@ public class ReturnValidity {
 
     private static String currentUserHash = User.generateBasicUserHash();
 
-    static boolean runPrelimReturnTests(TreeMap<Integer, Book> bookList, int bookID){
-        Object isBook = BookList.findBookBasedOnID(bookList, bookID);
+    static boolean runPrelimReturnTests(TreeMap<Integer, Item> bookList, int bookID){
+        Object isBook = BookList.findItemBasedOnID(bookList, bookID);
 
         //if this book does not exist in the database
         if (isBook == null){
@@ -31,8 +31,8 @@ public class ReturnValidity {
         }
     }
 
-    static void proceedWithValidReturn(TreeMap<Integer, Book> bookList, int bookID){
-        Object bookObject = BookList.findBookBasedOnID(bookList, bookID);
+    static void proceedWithValidReturn(TreeMap<Integer, Item> bookList, int bookID){
+        Object bookObject = BookList.findItemBasedOnID(bookList, bookID);
         Book bookToReturn = Book.class.cast(bookObject);
 
         //remove book id from user array

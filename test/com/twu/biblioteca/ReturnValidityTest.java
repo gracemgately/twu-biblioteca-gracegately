@@ -9,14 +9,14 @@ import java.util.TreeMap;
 
 public class ReturnValidityTest {
 
-    private TreeMap<Integer, Book> testList;
+    private TreeMap<Integer, Item> testList;
     private Book testBook, testBook2;
 
     @Before
     public void createTestBookAndListAndUser(){
         Book book = new Book("The Wind in The Willows", "Grahame, Kenneth", 0, 1908, 6);
         Book book2 = new Book("Test-Driven Development: By Example", "Kent Beck", 2, 2003, 7);
-        TreeMap<Integer, Book> list = new TreeMap<Integer, Book>();
+        TreeMap<Integer, Item> list = new TreeMap<Integer, Item>();
 
         list.put(book.ID, book);
         list.put(book2.ID, book2);

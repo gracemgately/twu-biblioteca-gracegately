@@ -55,12 +55,13 @@ public class Display {
 
     static void displayBookList(){
 
-        TreeMap<Integer, Book> bookList = BookList.getBookList();
+        TreeMap<Integer, Item> bookList = BookList.getBookList();
 
         System.out.format("%32s%32s%32s%32s%32s%2s","ID#", "Author:", "Title:", "Year:", "# Available:","\n");
 
-        for (Map.Entry<Integer, Book> entry: bookList.entrySet()){
-            Book book = entry.getValue();
+        for (Map.Entry<Integer, Item> entry: bookList.entrySet()){
+            Item bookItem = entry.getValue();
+            Book book = Book.class.cast(bookItem);
             System.out.format("%32d%32s%32s%32d%32d%2s", book.ID, book.author, book.title, book.year, book.quantityInStock, "\n");
         }
     }

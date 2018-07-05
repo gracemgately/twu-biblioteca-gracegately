@@ -9,7 +9,7 @@ import java.util.TreeMap;
 public class BookListTest {
 
     private Book testBook;
-    private TreeMap<Integer, Book> testList;
+    private TreeMap<Integer, Item> testList;
 
     @Before
     public void createTestBookAndList(){
@@ -17,7 +17,7 @@ public class BookListTest {
         book.addOwner("Me, Who");
         book.addOwner("You, Is");
 
-        TreeMap<Integer, Book> list = new TreeMap<Integer, Book>();
+        TreeMap<Integer, Item> list = new TreeMap<Integer, Item>();
 
         testBook = book;
         testList = list;
@@ -35,13 +35,13 @@ public class BookListTest {
     public void shouldBeAbleToFindABookByID(){
         testList.put(testBook.ID, testBook);
 
-        Object isBook = BookList.findBookBasedOnID(testList, 6);
+        Object isBook = BookList.findItemBasedOnID(testList, 6);
         assertTrue(isBook.equals(testBook));
     }
 
     @Test
     public void shouldReturnNullForABookIDNotInList(){
-        Object notBook = BookList.findBookBasedOnID(testList, 8);
+        Object notBook = BookList.findItemBasedOnID(testList, 8);
         assertNull(notBook);
 
     }

@@ -12,11 +12,11 @@ public abstract class Item implements Comparable<Item> {
 
 
     //TBD: eventually owner should be an object instead of a string (User class?)
-    String title, author;
+    String title;
     ArrayList<String> owners;
     int quantityInStock, year;
     final int ID;
-    Item(String title, String author, int quantityInStock, int year, int ID){
+    Item(String title, String authorOrDirector, int quantityInStock, int year, int ID){
         this.title = title;
         this.year = year;
         this.owners = new ArrayList<String>();

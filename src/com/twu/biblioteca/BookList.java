@@ -1,12 +1,7 @@
 package com.twu.biblioteca;
 
-import java.util.TreeMap;
+public class BookList extends ItemList {
 
-public class BookList {
-
-    //Object: Book
-    //Integer: Book id
-    private static TreeMap<Integer, Book> bookList = new TreeMap<Integer, Book>();
 
     static void initializeBookIndex(){
         //TBD: eventually initialize the book index from saved information
@@ -21,14 +16,6 @@ public class BookList {
         bookList.put(book2.ID, book2);
         bookList.put(book3.ID, book3);
         bookList.put(book4.ID, book4);
-    }
-
-    static TreeMap<Integer, Book> getBookList(){
-        return bookList;
-    }
-
-    static Object findBookBasedOnID(TreeMap<Integer, Book> listToSearch, int searchID){
-        return listToSearch.get(searchID);
     }
 
 }

@@ -6,8 +6,8 @@ public class CheckoutValidity {
 
     private static String currentUserHash = User.generateBasicUserHash();
 
-    static boolean runPrelimCheckoutTests(TreeMap<Integer, Book> bookList, int bookID){
-        Object isBook = BookList.findBookBasedOnID(bookList, bookID);
+    static boolean runPrelimCheckoutTests(TreeMap<Integer, Item> bookList, int bookID){
+        Object isBook = BookList.findItemBasedOnID(bookList, bookID);
 
         //if this book does not exist in the database
         if (isBook == null){
@@ -28,8 +28,8 @@ public class CheckoutValidity {
         }
     }
 
-    static void proceedWithValidCheckout(TreeMap<Integer, Book> bookList, int bookID){
-        Object bookObject = BookList.findBookBasedOnID(bookList, bookID);
+    static void proceedWithValidCheckout(TreeMap<Integer, Item> bookList, int bookID){
+        Object bookObject = BookList.findItemBasedOnID(bookList, bookID);
         Book bookToCheckout = Book.class.cast(bookObject);
 
         //add book id to list of book ids in user array
