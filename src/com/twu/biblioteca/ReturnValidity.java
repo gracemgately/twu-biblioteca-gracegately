@@ -17,7 +17,7 @@ public class ReturnValidity {
         else {
             Book book = Book.class.cast(isBook);
             boolean doesUserHaveBook = User.isBookCheckedOutToUser(book.ID);
-            boolean doesBookHaveUser = book.doesBookHaveUserInList(currentUserHash);
+            boolean doesBookHaveUser = book.doesItemHaveUserInList(currentUserHash);
 
             //does the user have this book checked out in their list?
             //does the book have this user in its owner list?

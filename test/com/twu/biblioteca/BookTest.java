@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class BookTest {
@@ -45,7 +44,7 @@ public class BookTest {
     @Test
     public void booksShouldHaveOwnersIfCheckedOut(){
         assertTrue(testBook.owners.size() == 2);
-        assertTrue(testBook.doesBookHaveUserInList("Me, Who"));
+        assertTrue(testBook.doesItemHaveUserInList("Me, Who"));
     }
 
     @Test

@@ -50,10 +50,10 @@ public class ReturnValidityTest {
 
     @Test
     public void shouldRemoveUserFromBookListOfOwners(){
-        assertTrue(testBook2.doesBookHaveUserInList(User.generateBasicUserHash()));
+        assertTrue(testBook2.doesItemHaveUserInList(User.generateBasicUserHash()));
 
         ReturnValidity.proceedWithValidReturn(testList, 7);
-        assertFalse(testBook2.doesBookHaveUserInList(User.generateBasicUserHash()));
+        assertFalse(testBook2.doesItemHaveUserInList(User.generateBasicUserHash()));
 
     }
 }
