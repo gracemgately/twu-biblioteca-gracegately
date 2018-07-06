@@ -8,6 +8,7 @@ public class User {
 
     private static String lastName, firstName;
     private static ArrayList<Integer> booksCheckedOut = new ArrayList<Integer>();
+    private static ArrayList<Integer> moviesCheckedOut = new ArrayList<Integer>();
 
     User(String lastName, String firstName){
         this.lastName = lastName;
@@ -38,9 +39,11 @@ public class User {
         return new User(last, first);
     }
 
-    static void checkoutBookToUser(int bookID){
-        booksCheckedOut.add(bookID);
+    //Overloading
+    static void checkoutItemToUser(Book book){
+        booksCheckedOut.add(book.ID);
     }
+    static void checkoutItemToUser(Movie movie) { moviesCheckedOut.add(movie.ID);}
 
     static void returnBookToLibrary(int bookID){
         int indexToRemove = booksCheckedOut.indexOf(bookID);
@@ -50,6 +53,10 @@ public class User {
     static ArrayList<Integer> getBooksCheckedOutToUser(){
         return booksCheckedOut;
     }
+    static ArrayList<Integer> getMoviesCheckedOutToUser(){
+        return moviesCheckedOut;
+    }
+
 
     static boolean isBookCheckedOutToUser(int bookID){
         return booksCheckedOut.contains(bookID);

@@ -6,6 +6,8 @@ import static org.junit.Assert.*;
 public class UserTest {
 
     User testUser = new User("ME", "NOT");
+    Book book = new Book("The Wind in The Willows", "Grahame, Kenneth", 4, 1908, 6);
+    Movie movie = new Movie("Paprika", "Kon, Satoshi", 5, 2006, 6, 6);
 
     @Test
     public void userShouldHaveALastAndFirstName(){
@@ -22,29 +24,31 @@ public class UserTest {
     }
 
     @Test
-    public void userShouldHaveAddBookIDsToListWhenCheckedOut(){
+    public void userShouldHaveAddIDsToListWhenCheckedOut(){
         assertEquals(0, User.getBooksCheckedOutToUser().size());
 
-        User.checkoutBookToUser(7);
-        User.checkoutBookToUser(2);
+        User.checkoutItemToUser(book);
+        User.checkoutItemToUser(movie);
+        assertEquals(1, User.getBooksCheckedOutToUser().size());
+        assertEquals(1, User.getMoviesCheckedOutToUser().size());
+
+    }
+
+    @Test
+    public void userShouldRemoveIDFromListWhenItemIsReturned(){
+        User.checkoutItemToUser(book);
+        User.checkoutItemToUser(movie);
+
+        //size 1 from previous test
         assertEquals(2, User.getBooksCheckedOutToUser().size());
+        User.returnBookToLibrary(6);
+
+        assertTrue(User.getBooksCheckedOutToUser().size() == 0);
     }
 
     @Test
-    public void userShouldRemoveBookIDFromListWhenBookIsReturned(){
-        User.checkoutBookToUser(1);
-        User.checkoutBookToUser(6);
-
-        //size 4 from previous test
-        assertEquals(4, User.getBooksCheckedOutToUser().size());
-        User.returnBookToLibrary(1);
-
-        assertTrue(User.getBooksCheckedOutToUser().get(1) == 2);
-    }
-
-    @Test
-    public void userShouldKnowIfABookIsCheckedOutToThem(){
-        User.checkoutBookToUser(6);
+    public void userShouldKnowIfAnItemIsCheckedOutToThem(){
+        User.checkoutItemToUser(book);
         assertTrue(User.isBookCheckedOutToUser(6));
         assertFalse(User.isBookCheckedOutToUser(8));
     }

@@ -26,7 +26,7 @@ public class ReturnValidityTest {
         testBook2 = book2;
 
         User newUser = new User("First", "Last");
-        User.checkoutBookToUser(7);
+        User.checkoutItemToUser(book2);
         book2.addOwner(User.generateBasicUserHash());
     }
 

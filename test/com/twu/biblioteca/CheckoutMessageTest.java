@@ -8,12 +8,12 @@ public class CheckoutMessageTest {
     @Test
     public void gameShouldDisplayMessageBasedOnResultOfCheckout(){
         String successfulCheckout = "Thank you! Enjoy the book";
-        String unsuccessfulCheckout = "That book is not available";
+        String unsuccessfulCheckout = "That movie is not available";
 
-        CheckoutMessage.wasCheckoutSuccessful(true);
+        CheckoutMessage.wasCheckoutSuccessful(true, "book");
         String success = CheckoutMessage.getMessage();
 
-        CheckoutMessage.wasCheckoutSuccessful(false);
+        CheckoutMessage.wasCheckoutSuccessful(false, "movie");
         String failure = CheckoutMessage.getMessage();
 
         assertTrue(successfulCheckout.equals(success));
