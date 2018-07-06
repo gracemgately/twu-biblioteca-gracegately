@@ -52,7 +52,7 @@ public class UserTest {
 
         //size 1 from previous test
         assertEquals(1, User.getBooksCheckedOutToUser().size());
-        User.returnBookToLibrary(6);
+        User.returnItemToLibrary(testBook);
 
         assertTrue(User.getBooksCheckedOutToUser().size() == 0);
     }

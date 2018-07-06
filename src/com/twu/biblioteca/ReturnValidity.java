@@ -31,25 +31,30 @@ public class ReturnValidity {
                 }
             }
         }
+
         Display.displayReturnResultMessage(false, "item");
         return false;
     }
 
-    static void proceedWithValidReturn(TreeMap<Integer, Item> bookList, int bookID){
-        Object bookObject = BookList.findItemBasedOnID(bookList, bookID);
-        Book bookToReturn = Book.class.cast(bookObject);
+    static void proceedWithValidReturn(TreeMap<Integer, Item> itemList, int itemID){
+        Object itemObject = ItemList.findItemBasedOnID(itemList, itemID);
 
-        //remove book id from user array
-        User.returnBookToLibrary(bookID);
+        if (itemObject.getClass().toString().equals("class com.twu.biblioteca.Book")) {
+            Book bookToReturn = Book.class.cast(itemObject);
+            User.returnItemToLibrary(bookToReturn);
+            bookToReturn.removeOwnerFromList(currentUserHash);
+            bookToReturn.incrementQtyInStock();
+            Display.displayReturnResultMessage(true, "book");
 
-        //remove user hash from book array of owners
-        bookToReturn.removeOwnerFromList(currentUserHash);
+        }
+        else if (itemObject.getClass().toString().equals("class com.twu.biblioteca.Movie")){
+            Movie movieToReturn = Movie.class.cast(itemObject);
+            User.returnItemToLibrary(movieToReturn);
+            movieToReturn.removeOwnerFromList(currentUserHash);
+            movieToReturn.incrementQtyInStock();
+            Display.displayReturnResultMessage(true, "movie");
 
-        //increment qty in stock of book
-        bookToReturn.incrementQtyInStock();
-
-        //display successful return message
-        Display.displayReturnResultMessage(true, "book");
+        }
 
     }
 }

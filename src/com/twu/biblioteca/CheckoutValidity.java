@@ -37,7 +37,6 @@ public class CheckoutValidity {
 
         if (item.getClass().toString().equals("class com.twu.biblioteca.Movie")){
             Movie movieToCheckOut = Movie.class.cast(item);
-            //add book id to list of book ids in user array
             User.checkoutItemToUser(movieToCheckOut);
             movieToCheckOut.addOwner(currentUserHash);
             movieToCheckOut.decrementQtyInStock();
@@ -45,7 +44,6 @@ public class CheckoutValidity {
         }
         else if (item.getClass().toString().equals("class com.twu.biblioteca.Book")){
             Book bookToCheckOut = Book.class.cast(item);
-            //add book id to list of book ids in user array
             User.checkoutItemToUser(bookToCheckOut);
             bookToCheckOut.addOwner(currentUserHash);
             bookToCheckOut.decrementQtyInStock();

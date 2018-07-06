@@ -43,9 +43,14 @@ public class User {
     static void checkoutItemToUser(Book book){ booksCheckedOut.add(book.ID); }
     static void checkoutItemToUser(Movie movie) { moviesCheckedOut.add(movie.ID);}
 
-    static void returnBookToLibrary(int bookID){
-        int indexToRemove = booksCheckedOut.indexOf(bookID);
+    static void returnItemToLibrary(Book book){
+        int indexToRemove = booksCheckedOut.indexOf(book.ID);
         booksCheckedOut.remove(indexToRemove);
+    }
+
+    static void returnItemToLibrary(Movie movie){
+        int indexToRemove = moviesCheckedOut.indexOf(movie.ID);
+        moviesCheckedOut.remove(indexToRemove);
     }
 
     static ArrayList<Integer> getBooksCheckedOutToUser(){
