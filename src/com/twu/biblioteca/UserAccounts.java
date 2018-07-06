@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.TreeMap;
-
 public class UserAccounts extends ItemList{
 
     private static User currentUser;

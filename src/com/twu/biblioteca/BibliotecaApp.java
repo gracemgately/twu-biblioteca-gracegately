@@ -19,6 +19,8 @@ public class BibliotecaApp {
         //display welcome message
         Display.displayWelcomeMessage();
 
+
+        //BUG: For some reason no matter what key is entered, Brain is always returned?
         while (userSigningIn == null){
             //display prompt for user
             Display.displayUserNumberMessage();
