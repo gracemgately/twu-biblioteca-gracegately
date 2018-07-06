@@ -22,7 +22,7 @@ public class Display {
         System.out.println(prompt);
     }
 
-    //TBD: repetition in Menu displays
+    //TBD: refactor repetition in Menu displays
     static void displayFirstMainMenu(){
         MenuMessages.gameShouldDisplayTwoMenuOptionsOnStart();
         String menuOptions = MenuMessages.getMessage();
@@ -64,6 +64,19 @@ public class Display {
             Book book = Book.class.cast(bookItem);
             System.out.format("%32d%32s%32s%32d%32d%2s", book.ID, book.author, book.title, book.year, book.quantityInStock, "\n");
         }
+    }
+
+    static void displayMovieList(){
+        TreeMap<Integer, Item> movieList = MovieList.getMovieList();
+
+        System.out.format("%32s%32s%32s%32s%32s%32s%2s","ID#", "Director:", "Title:", "Year:", "Rating:", "# Available:","\n");
+
+        for (Map.Entry<Integer, Item> entry: movieList.entrySet()){
+            Item movieItem = entry.getValue();
+            Movie movie = Movie.class.cast(movieItem);
+            System.out.format("%32d%32s%32s%32d%32d%32d%2s", movie.ID, movie.director, movie.title, movie.year, movie.rating, movie.quantityInStock, "\n");
+        }
+
     }
 
 }

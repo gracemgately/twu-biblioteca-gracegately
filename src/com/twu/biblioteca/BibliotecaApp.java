@@ -12,6 +12,7 @@ public class BibliotecaApp {
 
         //initialize book list
         BookList.initializeBookIndex();
+        MovieList.initializeMovieIndex();
 
         //display welcome message
         Display.displayWelcomeMessage();
@@ -33,7 +34,7 @@ public class BibliotecaApp {
 
         //start library menu loop
         GameLoops.entryLoop();
-        while (GameLoops.getCurrentChoice() != 4){
+        while (GameLoops.getCurrentChoice() != 7){
             //user input
             MenuInputScanner.createScanner();
             GameLoops.otherLoops();

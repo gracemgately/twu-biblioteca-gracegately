@@ -33,9 +33,20 @@ public class MenuInputScanner extends InputScanner{
                 Display.displayBookList();
                 return 3;
             case 4:
+                //check out movie
+                Display.display("Enter the ID of the movie you would like to check out.");
+                return 4;
+            case 5:
+                //return movie
+                return 5;
+            case 6:
+                //view all movies
+                Display.displayMovieList();
+                return 6;
+            case 7:
                 //Quit
                 Display.display("Goodbye!");
-                return 4;
+                return 7;
             default:
                 //invalid option
                 Display.displayInvalidOptionMessage();

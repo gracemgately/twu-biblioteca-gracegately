@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 
 public class BookList extends ItemList {
 
-
     static void initializeBookIndex(){
         //TBD: eventually initialize the book index from saved information
         //from previous sessions of Biblioteca
@@ -16,6 +15,7 @@ public class BookList extends ItemList {
         bookList.put(book2.ID, book2);
         bookList.put(book3.ID, book3);
         bookList.put(book4.ID, book4);
+
     }
 
 }

@@ -18,10 +18,15 @@ public class GameLoops {
                 Display.displayBookList();
                 currentChoice = 3;
                 break;
-            case 4:
+            case 6:
+                //View all movies
+                Display.displayMovieList();
+                currentChoice = 6;
+                break;
+            case 7:
                 //Quit
                 Display.display("Goodbye!");
-                currentChoice = 4;
+                currentChoice = 7;
                 break;
             default:
                 Display.displayInvalidOptionMessage();
