@@ -4,31 +4,35 @@ import java.util.TreeMap;
 
 public class ReturnValidity {
 
+    //TBD: too much repetition!!!
     private static String currentUserHash = User.generateBasicUserHash();
 
-    static boolean runPrelimReturnTests(TreeMap<Integer, Item> bookList, int bookID){
-        Object isBook = BookList.findItemBasedOnID(bookList, bookID);
-
+    static boolean runPrelimReturnTests(TreeMap<Integer, Item> itemList, int itemID) {
+        Object isItem = ItemList.findItemBasedOnID(itemList, itemID);
         //if this book does not exist in the database
-        if (isBook == null){
+        if (isItem == null) {
             Display.displayInvalidOptionMessage();
             return false;
-        }
-        else {
-            Book book = Book.class.cast(isBook);
-            boolean doesUserHaveBook = User.isBookCheckedOutToUser(book.ID);
-            boolean doesBookHaveUser = book.doesItemHaveUserInList(currentUserHash);
+        } else {
 
-            //does the user have this book checked out in their list?
-            //does the book have this user in its owner list?
-            if (doesUserHaveBook == false || doesBookHaveUser == false){
-                Display.displayReturnResultMessage(false);
-                return false;
-            }
-            else {
-                return true;
+            if (isItem.getClass().toString().equals("class com.twu.biblioteca.Book")) {
+                Book book = Book.class.cast(isItem);
+                boolean doesUserHaveItem = User.isItemCheckedOutToUser(book);
+                boolean doesItemHaveUser = book.doesItemHaveUserInList(currentUserHash);
+                if (doesUserHaveItem == true || doesItemHaveUser == true) {
+                    return true;
+                }
+            } else if (isItem.getClass().toString().equals("class com.twu.biblioteca.Movie")) {
+                Movie movie = Movie.class.cast(isItem);
+                boolean doesUserHaveItem = User.isItemCheckedOutToUser(movie);
+                boolean doesItemHaveUser = movie.doesItemHaveUserInList(currentUserHash);
+                if (doesUserHaveItem == true && doesItemHaveUser == true) {
+                    return true;
+                }
             }
         }
+        Display.displayReturnResultMessage(false, "item");
+        return false;
     }
 
     static void proceedWithValidReturn(TreeMap<Integer, Item> bookList, int bookID){
@@ -45,7 +49,7 @@ public class ReturnValidity {
         bookToReturn.incrementQtyInStock();
 
         //display successful return message
-        Display.displayReturnResultMessage(true);
+        Display.displayReturnResultMessage(true, "book");
 
     }
 }

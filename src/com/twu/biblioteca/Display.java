@@ -47,8 +47,8 @@ public class Display {
         System.out.println(result);
     }
 
-    static void displayReturnResultMessage(boolean success){
-        ReturnMessage.wasReturnSuccessful(success);
+    static void displayReturnResultMessage(boolean success, String type){
+        ReturnMessage.wasReturnSuccessful(success, type);
         String result = CheckoutMessage.getMessage();
         System.out.println(result);
     }

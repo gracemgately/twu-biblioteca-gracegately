@@ -49,9 +49,9 @@ public class MenuInputScanner extends InputScanner{
                 Display.display("Enter the ID of the movie you would like to return.");
                 itemID = CheckoutAndReturnInputScanner.runCheckoutAndReturnScanner();
 
-                isValidForCheckoutOrReturn = ReturnValidity.runPrelimReturnTests(BookList.getBookList(), itemID);
+                isValidForCheckoutOrReturn = ReturnValidity.runPrelimReturnTests(MovieList.getMovieList(), itemID);
                 if (isValidForCheckoutOrReturn == true){
-                    ReturnValidity.proceedWithValidReturn(BookList.getBookList(), itemID);
+                    ReturnValidity.proceedWithValidReturn(MovieList.getMovieList(), itemID);
                 }
                 return 5;
             case 6:

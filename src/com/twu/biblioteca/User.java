@@ -40,9 +40,7 @@ public class User {
     }
 
     //Overloading
-    static void checkoutItemToUser(Book book){
-        booksCheckedOut.add(book.ID);
-    }
+    static void checkoutItemToUser(Book book){ booksCheckedOut.add(book.ID); }
     static void checkoutItemToUser(Movie movie) { moviesCheckedOut.add(movie.ID);}
 
     static void returnBookToLibrary(int bookID){
@@ -57,9 +55,7 @@ public class User {
         return moviesCheckedOut;
     }
 
-
-    static boolean isBookCheckedOutToUser(int bookID){
-        return booksCheckedOut.contains(bookID);
-    }
+    static boolean isItemCheckedOutToUser(Book book){return booksCheckedOut.contains(book.ID);}
+    static boolean isItemCheckedOutToUser(Movie movie){return moviesCheckedOut.contains(movie.ID);}
 
 }
