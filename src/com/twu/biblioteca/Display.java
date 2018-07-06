@@ -16,7 +16,7 @@ public class Display {
         System.out.println(welcome);
     }
 
-    static void displayUserInfoMessage(){
+    static void displayUserNumberMessage(){
         UserInfoMessage.promptForUserNumber();
         String prompt = UserInfoMessage.getMessage();
         System.out.println(prompt);
