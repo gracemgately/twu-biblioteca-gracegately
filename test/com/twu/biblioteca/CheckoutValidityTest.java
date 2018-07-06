@@ -12,6 +12,9 @@ public class CheckoutValidityTest {
 
     @Before
     public void createTestBookAndList(){
+        User user = new User("ME", "NOT", "notme@nowhere.com", "ilovecats");
+        UserAccounts.setCurrentUser(user);
+
         Book book = new Book("The Wind in The Willows", "Grahame, Kenneth", 0, 1908, 6);
         Book book2 = new Book("Test-Driven Development: By Example", "Kent Beck", 2, 2003, 7);
         TreeMap<Integer, Item> list = new TreeMap<Integer, Item>();

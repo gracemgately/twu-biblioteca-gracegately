@@ -1,8 +1,8 @@
 package com.twu.biblioteca;
 
-import java.awt.*;
-
 public class BibliotecaApp {
+
+    static Object userSigningIn;
 
     public static void main(String[] args) {
 
@@ -17,17 +17,20 @@ public class BibliotecaApp {
         //display welcome message
         Display.displayWelcomeMessage();
 
-        //display prompt for user
-        Display.displayUserInfoMessage();
-
-        //get user name
-        String userName = User.getUserInfoFromUserInfoScanner();
-
-        //create or find user
-        User currentUser = User.parseUserInfoScannerInputAndCreateUser(userName);
+        while (userSigningIn == null){
+            //display prompt for user
+            Display.displayUserInfoMessage();
+            //get user name
+            String userName = UserAccounts.getUserLibraryNumberFromUserInfoScanner();
+            //find user
+            userSigningIn = UserAccounts.findItemBasedOnID(ItemList.getUserTable(), userName);
+        }
 
         //Welcome current user
-        Display.display("Hi " + currentUser.getFirstName() + "!" );
+        User user = User.class.cast(userSigningIn);
+        UserAccounts.setCurrentUser(user);
+
+        Display.display("Hi " + UserAccounts.getCurrentUser().getFirstName() + "!" );
 
         //display menu options FIRST TIME
         Display.displayFirstMainMenu();

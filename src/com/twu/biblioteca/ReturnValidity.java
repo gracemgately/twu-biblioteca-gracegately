@@ -5,7 +5,8 @@ import java.util.TreeMap;
 public class ReturnValidity {
 
     //TBD: too much repetition!!!
-    private static String currentUserHash = User.generateBasicUserHash();
+    private static User currentUser = UserAccounts.getCurrentUser();
+    private static String currentUserHash = currentUser.generateBasicUserHash();
 
     static boolean runPrelimReturnTests(TreeMap<Integer, Item> itemList, int itemID) {
         Object isItem = ItemList.findItemBasedOnID(itemList, itemID);
@@ -17,14 +18,14 @@ public class ReturnValidity {
 
             if (isItem.getClass().toString().equals("class com.twu.biblioteca.Book")) {
                 Book book = Book.class.cast(isItem);
-                boolean doesUserHaveItem = User.isItemCheckedOutToUser(book);
+                boolean doesUserHaveItem = currentUser.isItemCheckedOutToUser(book);
                 boolean doesItemHaveUser = book.doesItemHaveUserInList(currentUserHash);
                 if (doesUserHaveItem == true || doesItemHaveUser == true) {
                     return true;
                 }
             } else if (isItem.getClass().toString().equals("class com.twu.biblioteca.Movie")) {
                 Movie movie = Movie.class.cast(isItem);
-                boolean doesUserHaveItem = User.isItemCheckedOutToUser(movie);
+                boolean doesUserHaveItem = currentUser.isItemCheckedOutToUser(movie);
                 boolean doesItemHaveUser = movie.doesItemHaveUserInList(currentUserHash);
                 if (doesUserHaveItem == true && doesItemHaveUser == true) {
                     return true;

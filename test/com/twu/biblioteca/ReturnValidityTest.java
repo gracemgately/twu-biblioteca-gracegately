@@ -11,6 +11,7 @@ public class ReturnValidityTest {
 
     private TreeMap<Integer, Item> testList;
     private Book testBook, testBook2;
+    private User testUser;
 
     @Before
     public void createTestBookAndListAndUser(){
@@ -25,9 +26,12 @@ public class ReturnValidityTest {
         testBook = book;
         testBook2 = book2;
 
-        User newUser = new User("First", "Last");
-        User.checkoutItemToUser(book2);
-        book2.addOwner(User.generateBasicUserHash());
+        User newUser = new User("First", "Last", "myemail@address.com", "javaISgreat");
+        UserAccounts.setCurrentUser(newUser);
+        newUser.checkoutItemToUser(book2);
+        book2.addOwner(newUser.generateBasicUserHash());
+
+        testUser = newUser;
     }
 
     @Test
@@ -50,10 +54,10 @@ public class ReturnValidityTest {
 
     @Test
     public void shouldRemoveUserFromBookListOfOwners(){
-        assertTrue(testBook2.doesItemHaveUserInList(User.generateBasicUserHash()));
+        assertTrue(testBook2.doesItemHaveUserInList(testUser.generateBasicUserHash()));
 
         ReturnValidity.proceedWithValidReturn(testList, 7);
-        assertFalse(testBook2.doesItemHaveUserInList(User.generateBasicUserHash()));
+        assertFalse(testBook2.doesItemHaveUserInList(testUser.generateBasicUserHash()));
 
     }
 }

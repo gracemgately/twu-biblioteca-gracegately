@@ -4,7 +4,8 @@ import java.util.TreeMap;
 
 public class CheckoutValidity {
 
-    private static String currentUserHash = User.generateBasicUserHash();
+    private static User currentUser = UserAccounts.getCurrentUser();
+    private static String currentUserHash = currentUser.generateBasicUserHash();
 
     static boolean runPrelimCheckoutTests(TreeMap<Integer, Item> itemList, int itemID){
         Object isItem = ItemList.findItemBasedOnID(itemList, itemID);
@@ -37,14 +38,14 @@ public class CheckoutValidity {
 
         if (item.getClass().toString().equals("class com.twu.biblioteca.Movie")){
             Movie movieToCheckOut = Movie.class.cast(item);
-            User.checkoutItemToUser(movieToCheckOut);
+            currentUser.checkoutItemToUser(movieToCheckOut);
             movieToCheckOut.addOwner(currentUserHash);
             movieToCheckOut.decrementQtyInStock();
             Display.displayCheckoutResultMessage(true, "movie");
         }
         else if (item.getClass().toString().equals("class com.twu.biblioteca.Book")){
             Book bookToCheckOut = Book.class.cast(item);
-            User.checkoutItemToUser(bookToCheckOut);
+            currentUser.checkoutItemToUser(bookToCheckOut);
             bookToCheckOut.addOwner(currentUserHash);
             bookToCheckOut.decrementQtyInStock();
             Display.displayCheckoutResultMessage(true, "book");

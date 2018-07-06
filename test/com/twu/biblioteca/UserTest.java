@@ -12,7 +12,7 @@ public class UserTest {
 
     @Before
     public void buildTestInfo(){
-        User user = new User("ME", "NOT");
+        User user = new User("ME", "NOT", "notme@nowhere.com", "invisibilitycloak");
         Book book = new Book("The Wind in The Willows", "Grahame, Kenneth", 4, 1908, 6);
         Book book1 = new Book("A True Novel", "Mizumura, Minae", 1, 2002, 2);
         Movie movie = new Movie("Paprika", "Kon, Satoshi", 5, 2006, 6, 7);
@@ -26,42 +26,39 @@ public class UserTest {
 
     @Test
     public void userShouldHaveALastAndFirstName(){
-        assertEquals("NOT", User.getFirstName());
-        assertNotEquals("IS", User.getLastName());
+        assertEquals("NOT", testUser.getFirstName());
+        assertNotEquals("IS", testUser.getLastName());
     }
 
     @Test
-    public void userShouldBeCreatedFromUserInput() {
-        String userInput = "kennEdY  , BoBBy  ";
-        User newUser = User.parseUserInfoScannerInputAndCreateUser(userInput);
-
-        assertEquals(User.getFirstName(), "BOBBY");
+    public void userShouldHaveEmail(){
+        assertEquals("notme@nowhere.com", testUser.getEmail());
     }
 
     @Test
     public void userShouldHaveAddIDsToListWhenCheckedOut(){
-        assertEquals(0, User.getBooksCheckedOutToUser().size());
-        User.checkoutItemToUser(testBook);
-        assertEquals(1, User.getBooksCheckedOutToUser().size());
+        assertEquals(0, testUser.getBooksCheckedOutToUser().size());
+        testUser.checkoutItemToUser(testBook);
+        assertEquals(1, testUser.getBooksCheckedOutToUser().size());
     }
 
     @Test
     public void userShouldRemoveIDFromListWhenItemIsReturned(){
-        User.checkoutItemToUser(testBook);
-        User.checkoutItemToUser(testMovie);
+        testUser.checkoutItemToUser(testBook);
+        testUser.checkoutItemToUser(testMovie);
 
         //size 1 from previous test
-        assertEquals(1, User.getBooksCheckedOutToUser().size());
+        assertEquals(1, testUser.getBooksCheckedOutToUser().size());
         User.returnItemToLibrary(testBook);
 
-        assertTrue(User.getBooksCheckedOutToUser().size() == 0);
+        assertTrue(testUser.getBooksCheckedOutToUser().size() == 0);
     }
 
     @Test
     public void userShouldKnowIfAnItemIsCheckedOutToThem(){
-        User.checkoutItemToUser(testBook);
-        assertTrue(User.isItemCheckedOutToUser(testBook));
-        assertFalse(User.isItemCheckedOutToUser(testBook1));
+        testUser.checkoutItemToUser(testBook);
+        assertTrue(testUser.isItemCheckedOutToUser(testBook));
+        assertFalse(testUser.isItemCheckedOutToUser(testBook1));
     }
 }
 

@@ -2,8 +2,8 @@ package com.twu.biblioteca;
 
 public class UserInfoMessage extends Message {
 
-    public static void promptForUserName(){
-        setMessage("Please enter your name: LASTNAME, FIRSTNAME.");
+    public static void promptForUserNumber(){
+        setMessage("Please enter your library number: xxx-xxxx.");
     }
 
 }

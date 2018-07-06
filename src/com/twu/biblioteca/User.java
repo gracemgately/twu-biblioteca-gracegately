@@ -5,43 +5,41 @@ import java.util.ArrayList;
 public class User {
 
     //TBD: User should also eventually have a unique ID
-
-    private static String lastName, firstName;
     private static ArrayList<Integer> booksCheckedOut = new ArrayList<Integer>();
     private static ArrayList<Integer> moviesCheckedOut = new ArrayList<Integer>();
 
-    User(String lastName, String firstName){
+    //TBD: email address should be validated (use java email package?)
+    private static String lastName, firstName, email, password;
+    private static ArrayList<Integer> books, movies;
+    User(String lastName, String firstName, String email, String password){
         this.lastName = lastName;
         this.firstName = firstName;
+        this.email = email;
+        this.password = password;
+        this.books = booksCheckedOut;
+        this.movies = moviesCheckedOut;
+
     }
 
-    static String getLastName(){
+    String getLastName(){
         return lastName;
     }
 
-    static String getFirstName(){
+    String getFirstName(){
         return firstName;
     }
 
-    static String generateBasicUserHash(){
-        return User.getLastName() + User.getFirstName();
-    }
+    String getEmail() { return email; }
 
-    static String getUserInfoFromUserInfoScanner(){
-        UserInfoScanner.createScanner();
-        return UserInfoScanner.runUserInfoScanner();
-    }
+    String getPassword() { return password; }
 
-    static User parseUserInfoScannerInputAndCreateUser(String userName){
-        String[] fullName = userName.split(",");
-        String last = fullName[0].trim().toUpperCase();
-        String first = fullName[1].trim().toUpperCase();
-        return new User(last, first);
+    String generateBasicUserHash(){
+        return this.getLastName() + this.getFirstName();
     }
 
     //Overloading
-    static void checkoutItemToUser(Book book){ booksCheckedOut.add(book.ID); }
-    static void checkoutItemToUser(Movie movie) { moviesCheckedOut.add(movie.ID);}
+    void checkoutItemToUser(Book book){ booksCheckedOut.add(book.ID); }
+    void checkoutItemToUser(Movie movie) { moviesCheckedOut.add(movie.ID);}
 
     static void returnItemToLibrary(Book book){
         int indexToRemove = booksCheckedOut.indexOf(book.ID);
@@ -53,14 +51,14 @@ public class User {
         moviesCheckedOut.remove(indexToRemove);
     }
 
-    static ArrayList<Integer> getBooksCheckedOutToUser(){
-        return booksCheckedOut;
+    ArrayList<Integer> getBooksCheckedOutToUser(){
+        return this.books;
     }
-    static ArrayList<Integer> getMoviesCheckedOutToUser(){
-        return moviesCheckedOut;
+    ArrayList<Integer> getMoviesCheckedOutToUser(){
+        return this.movies;
     }
 
-    static boolean isItemCheckedOutToUser(Book book){return booksCheckedOut.contains(book.ID);}
-    static boolean isItemCheckedOutToUser(Movie movie){return moviesCheckedOut.contains(movie.ID);}
+    boolean isItemCheckedOutToUser(Book book){return booksCheckedOut.contains(book.ID);}
+    boolean isItemCheckedOutToUser(Movie movie){return moviesCheckedOut.contains(movie.ID);}
 
 }

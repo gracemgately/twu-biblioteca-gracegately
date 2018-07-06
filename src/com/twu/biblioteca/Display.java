@@ -17,7 +17,7 @@ public class Display {
     }
 
     static void displayUserInfoMessage(){
-        UserInfoMessage.promptForUserName();
+        UserInfoMessage.promptForUserNumber();
         String prompt = UserInfoMessage.getMessage();
         System.out.println(prompt);
     }
