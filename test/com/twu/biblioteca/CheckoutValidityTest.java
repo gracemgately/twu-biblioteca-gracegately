@@ -12,7 +12,7 @@ public class CheckoutValidityTest {
 
     @Before
     public void createTestBookAndList(){
-        User user = new User("ME", "NOT", "notme@nowhere.com", "ilovecats");
+        User user = new User("ME", "NOT", "notme@nowhere.com", "123-098-2678","ilovecats");
         UserAccounts.setCurrentUser(user);
 
         Book book = new Book("The Wind in The Willows", "Grahame, Kenneth", 0, 1908, 6);

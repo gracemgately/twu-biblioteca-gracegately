@@ -52,8 +52,7 @@ public class BibliotecaApp {
 
         //start library menu loop
         Loops.entryLoop();
-        while (Loops.getCurrentChoice() != 7){
-            //user input
+        while (Loops.getCurrentChoice() != 8){
             MenuInputScanner.createScanner();
             Loops.otherLoops();
         }

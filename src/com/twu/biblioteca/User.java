@@ -9,12 +9,13 @@ public class User {
     private static ArrayList<Integer> moviesCheckedOut = new ArrayList<Integer>();
 
     //TBD: email address should be validated (use java email package?)
-    private static String lastName, firstName, email, password;
+    private static String lastName, firstName, email, phoneNumber, password;
     private static ArrayList<Integer> books, movies;
-    User(String lastName, String firstName, String email, String password){
+    User(String lastName, String firstName, String email, String phoneNumber, String password){
         this.lastName = lastName;
         this.firstName = firstName;
         this.email = email;
+        this.phoneNumber = phoneNumber;
         this.password = password;
         this.books = booksCheckedOut;
         this.movies = moviesCheckedOut;
@@ -30,6 +31,8 @@ public class User {
     }
 
     String getEmail() { return email; }
+
+    String getPhoneNumber() { return phoneNumber; }
 
     String getPassword() { return password; }
 

@@ -23,10 +23,10 @@ public class Loops {
                 Display.displayMovieList();
                 currentChoice = 6;
                 break;
-            case 7:
+            case 8:
                 //Quit
                 Display.display("Goodbye!");
-                currentChoice = 7;
+                currentChoice = 8;
                 break;
             default:
                 Display.displayInvalidOptionMessage();

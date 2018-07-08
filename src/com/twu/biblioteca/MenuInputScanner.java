@@ -59,9 +59,13 @@ public class MenuInputScanner extends InputScanner{
                 Display.displayMovieList();
                 return 6;
             case 7:
+                //display user info
+                Display.displayUserInfo();
+                return 7;
+            case 8:
                 //Quit
                 Display.display("Goodbye!");
-                return 7;
+                return 8;
             default:
                 //invalid option
                 Display.displayInvalidOptionMessage();

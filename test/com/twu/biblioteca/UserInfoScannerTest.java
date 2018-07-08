@@ -10,7 +10,7 @@ public class UserInfoScannerTest {
 
     @Test
     public void scannerShouldTakeAString(){
-        String input = "LAST, FIRST";
+        String input = "123-7890";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
@@ -21,14 +21,14 @@ public class UserInfoScannerTest {
     }
 
     @Test
-    public void scannerShouldTrimInputAndMakeUpperCase(){
-        String input = "Read, dIdn'T";
+    public void scannerShouldTrimInput(){
+        String input = "   password ";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
         UserInfoScanner.createScanner();
         String userName = UserInfoScanner.runUserInfoScanner();
 
-        assertEquals("READ, DIDN'T", userName);
+        assertEquals("password", userName);
     }
 }

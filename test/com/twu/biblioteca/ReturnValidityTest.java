@@ -28,7 +28,7 @@ public class ReturnValidityTest {
         testBook = book;
         testBook2 = book2;
 
-        User newUser = new User("First", "Last", "myemail@address.com", "javaISgreat");
+        User newUser = new User("First", "Last", "myemail@address.com", "567-123-3729","javaISgreat");
         UserAccounts.setCurrentUser(newUser);
         newUser.checkoutItemToUser(book2);
         book2.addOwner(newUser.generateBasicUserHash());

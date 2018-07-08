@@ -22,7 +22,6 @@ public class Display {
         System.out.println(prompt);
     }
 
-    //TBD: refactor repetition in Menu displays
     static void displayFirstMainMenu(){
         MenuMessages.gameShouldDisplayTwoMenuOptionsOnStart();
         String menuOptions = MenuMessages.getMessage();
@@ -76,6 +75,17 @@ public class Display {
             Movie movie = Movie.class.cast(movieItem);
             System.out.format("%32d%32s%32s%32d%32d%32d%2s", movie.ID, movie.director, movie.title, movie.year, movie.rating, movie.quantityInStock, "\n");
         }
+
+    }
+
+    static void displayUserInfo(){
+        User currentUser = UserAccounts.getCurrentUser();
+        String fullName = currentUser.getLastName() + ", " + currentUser.getFirstName();
+        String email = currentUser.getEmail();
+        String phoneNum = currentUser.getPhoneNumber();
+
+        System.out.format("%32s%32s%32s%2s","Name:", "Email:", "Phone #:", "\n");
+        System.out.format("%32s%32s%32s%2s", fullName, email, phoneNum, "\n");
 
     }
 

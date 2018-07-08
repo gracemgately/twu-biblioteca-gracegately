@@ -10,14 +10,14 @@ public class MenuInputScannerTest{
 
     @Test
     public void scannerShouldReturnResultBasedOnUserChoice(){
-        String goodInput = "2";
+        String goodInput = "3";
         InputStream good = new ByteArrayInputStream(goodInput.getBytes());
         System.setIn(good);
 
         MenuInputScanner.createScanner();
         int scannerResult = MenuInputScanner.runMenuInputScanner();
 
-        assertEquals(2, scannerResult);
+        assertEquals(3, scannerResult);
         assertNotEquals(4,scannerResult);
 
     }

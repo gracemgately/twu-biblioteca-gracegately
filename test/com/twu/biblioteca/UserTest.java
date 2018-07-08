@@ -12,7 +12,7 @@ public class UserTest {
 
     @Before
     public void buildTestInfo(){
-        User user = new User("ME", "NOT", "notme@nowhere.com", "invisibilitycloak");
+        User user = new User("ME", "NOT", "notme@nowhere.com", "443-456-7896","invisibilitycloak");
         Book book = new Book("The Wind in The Willows", "Grahame, Kenneth", 4, 1908, 6);
         Book book1 = new Book("A True Novel", "Mizumura, Minae", 1, 2002, 2);
         Movie movie = new Movie("Paprika", "Kon, Satoshi", 5, 2006, 6, 7);
@@ -33,6 +33,12 @@ public class UserTest {
     @Test
     public void userShouldHaveEmail(){
         assertEquals("notme@nowhere.com", testUser.getEmail());
+    }
+
+
+    @Test
+    public void userShouldHavePhoneNumber(){
+        assertEquals("443-456-7896", testUser.getPhoneNumber());
     }
 
     @Test

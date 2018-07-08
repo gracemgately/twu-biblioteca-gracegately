@@ -12,10 +12,11 @@ public class MenuMessages extends Message{
                     "Enter 4 to Check Out A Movie",
                     "Enter 5 to Return A Movie",
                     "Enter 6 to View All Movies",
-                    "Enter 7 to Quit"};
+                    "Enter 7 to View Account Information",
+                    "Enter 8 to Quit"};
 
     static void gameShouldDisplayTwoMenuOptionsOnStart(){
-        setMessage(messages[2] + "\n" + messages[5] + "\n" + messages[6]); }
+        setMessage(messages[2] + "\n" + messages[5] + "\n" + messages[7]); }
 
     public static void gameShouldDisplayAllMenuOptions(){
         setMessage(String.join("\n", messages));
