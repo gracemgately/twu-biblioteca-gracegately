@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class GameLoops {
+public class Loops {
 
     private static int currentChoice;
 

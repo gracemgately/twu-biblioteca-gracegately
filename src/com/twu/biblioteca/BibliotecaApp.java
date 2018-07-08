@@ -5,21 +5,13 @@ public class BibliotecaApp {
     private static Object userSigningIn;
     private static boolean passwordVerified;
 
-    public static void main(String[] args) {
-
-        System.out.println("Hello, world!");
-
-        //TBD: THIS SHOULD ALL BE GAME CLASS LOGIC??
-
-        //initialize book list
+    static void initializeLists(){
         BookList.initializeBookIndex();
         MovieList.initializeMovieIndex();
         UserAccounts.initializeUsers();
+    }
 
-        //display welcome message
-        Display.displayWelcomeMessage();
-
-
+    static void signInUserAndSetAsCurrentUser(){
         //BUG: For some reason no matter what key is entered, Brain is always returned?
         while (userSigningIn == null){
             //display prompt for user
@@ -39,21 +31,31 @@ public class BibliotecaApp {
             passwordVerified = (isPassword.equals(user.getPassword())) ? true : false;
         }
 
+        UserAccounts.setCurrentUser(user);
+    }
+
+
+    public static void main(String[] args) {
+
+        initializeLists();
+
+        //display welcome message
+        Display.displayWelcomeMessage();
+
+        signInUserAndSetAsCurrentUser();
 
         //Welcome current user
-        UserAccounts.setCurrentUser(user);
-
         Display.display("Hi " + UserAccounts.getCurrentUser().getFirstName() + "!" );
 
         //display menu options FIRST TIME
         Display.displayFirstMainMenu();
 
         //start library menu loop
-        GameLoops.entryLoop();
-        while (GameLoops.getCurrentChoice() != 7){
+        Loops.entryLoop();
+        while (Loops.getCurrentChoice() != 7){
             //user input
             MenuInputScanner.createScanner();
-            GameLoops.otherLoops();
+            Loops.otherLoops();
         }
 
 
